@@ -43,5 +43,3 @@ Dúvidas, sugestões ou feedbacks?
 Me chama no [Instagram](https://instagram.com/albertofernandescouto) ou pelo [LinkedIn](https://www.linkedin.com/in/albertocouto).
 
 ---
-
-Feito com ❤️ por [Alberto Couto](https://github.com/betim009)
