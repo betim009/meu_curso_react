@@ -1,0 +1,20 @@
+.myButton {
+    border: none;
+    font-size: 20px;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.myButtonPrimary {
+    background-color: blue;
+    color: white;
+}
+
+.myButtonSecondary {
+    background-color: purple;
+    color: white
+}
+
+.myButtonLarge {
+    padding: 12px;
+}
