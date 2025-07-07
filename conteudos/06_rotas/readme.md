@@ -1,4 +1,3 @@
-
 # Como usar React Router com Vite + React (JavaScript)
 
 ## 🧠 O que é React Router?
