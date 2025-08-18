@@ -6,6 +6,7 @@ export const urlEUR =
 
 export const urlClimaSP = `https://api.open-meteo.com/v1/forecast?latitude=-23.55&longitude=-46.63&hourly=temperature_2m,precipitation&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
 
-export const urlClimaRJ = `https://api.open-meteo.com/v1/forecast?latitude=-22.9068&longitude=-43.1729&hourly=temperature_2m,precipitation&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
+export const urlClimaRJ = `https://api.open-meteo.com/v1/forecast?latitude=-20.2342792&longitude=-43.1729&hourly=temperature_2m,precipitation&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
+
 
 export const localRj = "https://nominatim.openstreetmap.org/reverse?lat=-22.9068&lon=-43.1729&format=json"

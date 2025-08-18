@@ -9,6 +9,8 @@ function App() {
   const [rjMax, setRjMax] = useState("");
   const [spMin, setSpMin] = useState("");
   const [rjMin, setRjMin] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+  const [searchClima, setSearchClima] = useState("");
 
   useEffect(() => {
     async function getAPIS() {
@@ -50,13 +52,61 @@ function App() {
     getAPIS();
   }, []);
 
+  function handleChange({ target }) {
+    setSearchInput(target.value);
+  }
+
+  async function handleClick() {
+    const getLocalizacao = `https://nominatim.openstreetmap.org/search?q=${searchInput}&format=json&limit=1`;
+    const req = await fetch(getLocalizacao);
+    const res = await req.json();
+
+    console.log(res);
+
+    const resultado = res[0];
+    const { lat, lon } = resultado;
+
+    const getClima = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,precipitation&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
+    const reqClima = await fetch(getClima);
+    const resClima = await reqClima.json();
+
+    const { daily } = resClima;
+    setSearchClima(daily);
+
+    console.log(resClima);
+  }
+
   return (
     <>
-      <p>Valor do DOLAR: {usd.toFixed(2)}</p>
-      <p>Valor do EURO: {eur.toFixed(2)}</p>
+      {usd && eur ? (
+        <p>
+          Dolar: {Number(usd).toFixed(2)} - Euro:{Number(eur).toFixed(2)}
+        </p>
+      ) : (
+        <p>Loading</p>
+      )}
 
-      <p>Maxima de SP: {spMax} - Min: {spMin}</p>
-      <p>Maxima de RJ: {rjMax} - Min: {rjMin}</p>
+      {spMax && rjMin ? (
+        <div>
+          <p>
+            Maxima de SP: {spMax} - Min: {spMin}
+          </p>
+          <p>
+            Maxima de RJ: {rjMax} - Min: {rjMin}
+          </p>
+        </div>
+      ) : (
+        <p>Loading</p>
+      )}
+
+      <input type="text" onChange={handleChange} value={searchInput} />
+      <button onClick={handleClick}>BUSCAR</button>
+      {searchClima ? (
+        <p>
+          Maxima de:{searchClima.temperature_2m_max[0]} e minima de:{" "}
+          {searchClima.temperature_2m_min[0]}
+        </p>
+      ) : null}
     </>
   );
 }
