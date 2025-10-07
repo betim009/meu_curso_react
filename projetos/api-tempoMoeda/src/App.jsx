@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { urlClimaRJ, urlClimaSP, urlEUR, urlUSD } from "./endpoints";
+import Marquee from "react-fast-marquee";
 
 function App() {
   const [usd, setUsd] = useState("");
@@ -107,6 +108,10 @@ function App() {
           {searchClima.temperature_2m_min[0]}
         </p>
       ) : null}
+
+      <Marquee speed={60} pauseOnHover gradient={false}>
+        💵 {usd} | 💶 {eur} | 💷 GBP 7.30 | 💴 JPY 0.038
+      </Marquee>
     </>
   );
 }
