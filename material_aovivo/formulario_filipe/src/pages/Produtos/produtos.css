@@ -1,0 +1,17 @@
+.form-produtos {
+  background-color: darkgrey;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  gap: 10px;
+  width: 400px;
+
+  align-items: center;
+  justify-content: center;
+
+  input {
+    display: grid;
+    border-radius: 10px;
+    height: 25px;
+  }
+}
