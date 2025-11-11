@@ -8,6 +8,8 @@ export default function Home() {
   const [encontrarTarefa, setEncontrarTarefa] = useState(""); // Guarda o nome de uma tarefa digitada
   const [alterarTarefa, setAlterarTarefa] = useState(""); // Guarda o nome de uma tarefa digitada
 
+  let exemplo = "Thais";
+
   const handleChangeNovaTarefa = ({ target }: any) => {
     // console.log("Valor target: ", target);
     // console.log("Valor target value: ", target.value);
@@ -40,6 +42,9 @@ export default function Home() {
 
   return (
     <>
+      <h2>{exemplo}</h2>
+      <input type="text" onChange={({target}) => exemplo = target.value}/>
+
       <input
         type="text"
         placeholder="nome tarefa"
@@ -62,9 +67,9 @@ export default function Home() {
       />
 
       <input
-        type="text" 
-        placeholder="alterar tarefa" 
-        onChange={handleChangeAlterarTarefa} 
+        type="text"
+        placeholder="alterar tarefa"
+        onChange={handleChangeAlterarTarefa}
       />
 
       <button onClick={handleAlterar}>alterar</button>
